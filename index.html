@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarvika GM | Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Flatpickr date picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <style>
+        :root {
+            --background: #f3eaff;
+            --primary: #b79ced;
+            --secondary: #dcc8f5;
+            --dark: #49366d;
+            --pink: #f3b5d5;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            margin: 0;
+            background-color: #faf7ff;
+            color: var(--dark);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: var(--dark);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .navbar .nav-link {
+            color: white !important;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--pink) !important;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 0;
+            background: linear-gradient(135deg, #e5d5fa, #f9e1ef);
+            border-radius: 0 0 45px 45px;
+            margin-bottom: 25px;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 7px solid white;
+            box-shadow: 0 12px 30px rgba(73, 54, 109, 0.18);
+            transition: 0.4s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.04);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .hero h4 {
+            color: #8666b2;
+            margin-bottom: 25px;
+        }
+
+        .btn-custom {
+            background: var(--dark);
+            color: white;
+            border-radius: 30px;
+            padding: 11px 25px;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid var(--dark);
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: var(--pink);
+            color: var(--dark);
+            border-color: var(--pink);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--dark);
+            border-radius: 30px;
+            padding: 11px 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--dark);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* COMMON SECTIONS */
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: left;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 35px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 4px;
+            background: var(--pink);
+            margin: 12px 0;
+            border-radius: 10px;
+        }
+
+        /* CARDS */
+        .custom-card {
+            background: white;
+            border: none;
+            border-radius: 18px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(73, 54, 109, 0.08);
+            transition: 0.35s;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(73, 54, 109, 0.16);
+        }
+
+        .custom-card h5 {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .custom-card p {
+            color: #65577a;
+            line-height: 1.7;
+        }
+
+        .icon-style {
+            font-size: 25px;
+            color: #9b7acb;
+            margin-right: 8px;
+        }
+
+        /* SKILLS */
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .progress {
+            height: 12px;
+            background: #eadcf8;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .progress-bar {
+            width: 0;
+            background: linear-gradient(90deg, #b79ced, #f3b5d5);
+            border-radius: 20px;
+            transition: width 1.5s ease;
+        }
+
+        /* PROJECTS */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-description {
+            flex-grow: 1;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #f3eaff;
+            color: #7655a6;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        /* EDUCATION */
+        .highlight {
+            color: #8966b5;
+            font-weight: 600;
+        }
+
+        /* DAY 3 PERSONAL DETAILS FORM */
+        .personal-form-card {
+            background: white;
+            border: none;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(73, 54, 109, 0.08);
+        }
+
+        .personal-form-card .form-label {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .personal-form-card .form-control {
+            border: 1px solid #dcc8f5;
+            border-radius: 10px;
+            padding: 11px 14px;
+        }
+
+        .personal-form-card .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(183, 156, 237, 0.2);
+        }
+
+        .form-submit-btn {
+            background: var(--dark);
+            color: white;
+            border: 2px solid var(--dark);
+            border-radius: 30px;
+            padding: 11px 25px;
+            transition: 0.3s;
+        }
+
+        .form-submit-btn:hover {
+            background: var(--pink);
+            color: var(--dark);
+            border-color: var(--pink);
+        }
+
+        .form-reset-btn {
+            border: 2px solid var(--dark);
+            color: var(--dark);
+            border-radius: 30px;
+            padding: 11px 25px;
+        }
+
+        .form-reset-btn:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        .result-card {
+            background: #f3eaff;
+            border-radius: 15px;
+            padding: 22px;
+            margin-top: 25px;
+            display: none;
+            overflow-wrap: anywhere;
+        }
+
+        .result-card h5 {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .result-card p {
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 35px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 7px 0;
+        }
+
+        /* BACK TO TOP */
+        #backToTop {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 50%;
+            background: var(--dark);
+            color: white;
+            font-size: 22px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        #backToTop:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* PROJECT MODALS */
+        .modal-content {
+            border: none;
+            border-radius: 20px;
+            color: var(--dark);
+        }
+
+        .modal-header {
+            background: var(--background);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-title {
+            font-weight: 700;
+        }
+
+        /* TERMS AND CONDITIONS */
+        .terms-check {
+            background: #faf7ff;
+            border: 1px solid #dcc8f5;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .terms-check .form-check-input:checked {
+            background-color: var(--dark);
+            border-color: var(--dark);
+        }
+
+        .terms-link {
+            color: #7655a6;
+            font-weight: 700;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .terms-link:hover {
+            color: var(--dark);
+        }
+
+        .terms-modal .modal-body {
+            line-height: 1.8;
+            color: #65577a;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                text-align: center;
+                padding: 55px 0;
+            }
+
+            .profile-img {
+                width: 230px;
+                height: 260px;
+                margin-bottom: 30px;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .navbar .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+
+            .section {
+                padding: 45px 0;
+            }
+
+            .personal-form-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">SARVIKA GM</a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu"
+                    aria-controls="navbarMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+
+                    <!-- DAY 3 NAVBAR LINK -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#personal-details">Personal Details</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-md-5 text-center">
+                                        <img src="images/profile.jpg"
+                         alt="Sarvika GM"
+                         class="profile-img">
+                </div>
+
+                <div class="col-md-7">
+                    <h1>SARVIKA GM</h1>
+                    <h4>B.Tech IT Student | Software Developer</h4>
+
+                    <a href="Resume-sarvika.pdf"
+                       class="btn-custom me-2 mb-2"
+                       download>
+                        <i class="bi bi-download"></i>
+                        Download Resume
+                    </a>
+
+                    <a href="mailto:sarvikagm0709@gmail.com"
+                       class="btn-outline-custom mb-2">
+                        <i class="bi bi-envelope"></i>
+                        Hire Me
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="custom-card">
+                <p>
+                    B.Tech Information Technology student with hands-on experience in software development and backend technologies. Skilled in Java, Python, C++, JavaScript, Spring Boot, REST APIs, React.js and MySQL. Interested in problem-solving and practical software solutions.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6 mb-3">
+                        <p>
+                            <i class="bi bi-envelope-fill icon-style"></i>
+                            <strong>Email:</strong> sarvikagm0709@gmail.com
+                        </p>
+
+                        <p>
+                            <i class="bi bi-telephone-fill icon-style"></i>
+                            <strong>Phone:</strong> +91 8668058585
+                        </p>
+
+                        <p>
+                            <i class="bi bi-geo-alt-fill icon-style"></i>
+                            <strong>Location:</strong> Tamil Nadu, India
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <p>
+                            <i class="bi bi-linkedin icon-style"></i>
+                            <a href="https://linkedin.com/in/sarvika-gm-0246b632b"
+                               target="_blank">
+                                LinkedIn Profile
+                            </a>
+                        </p>
+
+                        <p>
+                            <i class="bi bi-github icon-style"></i>
+                            <a href="https://github.com/sarvika-gm"
+                               target="_blank">
+                                GitHub Profile
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Professional Skills</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <h5>
+                            <i class="bi bi-code-slash icon-style"></i>
+                            Programming Languages
+                        </h5>
+
+                        <p>Java, Python, C++, JavaScript, SQL</p>
+
+                        <div class="skill-name">Programming</div>
+
+                        <div class="progress">
+                            <div class="progress-bar" data-width="80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <h5>
+                            <i class="bi bi-window icon-style"></i>
+                            Web Technologies
+                        </h5>
+
+                        <p>HTML, CSS, React.js</p>
+
+                        <div class="skill-name">Web Development</div>
+
+                        <div class="progress">
+                            <div class="progress-bar" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <h5>
+                            <i class="bi bi-database icon-style"></i>
+                            Backend & Database
+                        </h5>
+
+                        <p>Spring Boot, REST APIs, MySQL</p>
+
+                        <div class="skill-name">Backend Development</div>
+
+                        <div class="progress">
+                            <div class="progress-bar" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <h5>
+                            <i class="bi bi-tools icon-style"></i>
+                            Testing & Tools
+                        </h5>
+
+                        <p>
+                            Selenium WebDriver, TestNG, Git & GitHub, VS Code, LeetCode
+                        </p>
+
+                        <div class="skill-name">Testing & Tools</div>
+
+                        <div class="progress">
+                            <div class="progress-bar" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Experience</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <div class="custom-card project-card">
+                        <i class="bi bi-heart-pulse icon-style"></i>
+
+                        <h5>Telemedicine Virtual Care Platform</h5>
+
+                        <span class="project-tag">
+                            React.js | Spring Boot | MySQL
+                        </span>
+
+                        <div class="project-description">
+                            <p>
+                                Developed a full-stack platform for virtual healthcare consultation and supporting services.
+                            </p>
+                        </div>
+
+                        <button class="btn-custom mt-3"
+                                data-bs-toggle="modal"
+                                data-bs-target="#telemedicineModal">
+                            View Project Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card project-card">
+                        <i class="bi bi-mortarboard icon-style"></i>
+
+                        <h5>Education Loan Tracking System</h5>
+
+                        <span class="project-tag">
+                            Java | Spring Boot | REST API | MySQL
+                        </span>
+
+                        <div class="project-description">
+                            <p>
+                                Built a backend application for managing and tracking education-loan information and operations.
+                            </p>
+                        </div>
+
+                        <button class="btn-custom mt-3"
+                                data-bs-toggle="modal"
+                                data-bs-target="#loanModal">
+                            View Project Details
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TELEMEDICINE PROJECT POPUP -->
+    <div class="modal fade"
+         id="telemedicineModal"
+         tabindex="-1"
+         aria-labelledby="telemedicineTitle"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="telemedicineTitle">
+                        Telemedicine Virtual Care Platform
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        <strong>Technologies:</strong>
+                        React.js | Spring Boot | MySQL
+                    </p>
+
+                    <p>
+                        Developed a full-stack platform for virtual healthcare consultation and supporting services.
+                    </p>
+
+                    <p>
+                        Implemented REST APIs for authentication, appointments, consultations, prescriptions, messaging, notifications, payments, referrals and monitoring.
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-custom" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION LOAN PROJECT POPUP -->
+    <div class="modal fade"
+         id="loanModal"
+         tabindex="-1"
+         aria-labelledby="loanTitle"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loanTitle">
+                        Education Loan Tracking System
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        <strong>Technologies:</strong>
+                        Java | Spring Boot | REST API | MySQL
+                    </p>
+
+                    <p>
+                        Built a backend application for managing and tracking education-loan information and operations.
+                    </p>
+
+                    <p>
+                        Implemented REST APIs with MySQL persistence for customers, education loans, loan types, payments and guarantors.
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn-custom" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+
+            <div class="custom-card">
+                <i class="bi bi-mortarboard-fill icon-style"></i>
+
+                <h5>Bachelor of Technology (B.Tech)</h5>
+
+                <p>Information Technology</p>
+
+                <p class="highlight">
+                    Sri Krishna College of Engineering & Technology
+                </p>
+
+                <p>
+                    <strong>CGPA:</strong> 7.82
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS AND LEARNING -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Learning</h2>
+
+            <div class="custom-card">
+                <p>Python for Data Science, AI & Development</p>
+                <p>Google Coursera – Python Certification</p>
+                <p>Python by Example – Course Completion</p>
+                <p>NPTEL – Course Completion</p>
+                <p>Active coding practice through LeetCode</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AREA OF INTEREST AND SOFT SKILLS -->
+    <section class="section" id="interests">
+        <div class="container">
+            <h2 class="section-title">Area of Interest & Soft Skills</h2>
+
+            <div class="custom-card">
+                <p>UI/UX Design | Web Development</p>
+
+                <p>
+                    Communication | Teamwork | Problem Solving | Time Management | Adaptability | Continuous Learning
+                </p>
+
+                <p>
+                    <strong>Languages:</strong> Tamil, English, Hindi
+                </p>
+            </div>
+        </div>
+    </section>
+        <!-- DAY 3: PERSONAL DETAILS FORM -->
+    <section class="section" id="personal-details">
+        <div class="container">
+            <h2 class="section-title">Personal Details Form</h2>
+
+            <div class="row justify-content-start">
+                <div class="col-lg-8">
+                    <div class="personal-form-card">
+
+                        <p class="mb-4">
+                            Please fill in your personal details using the form below.
+                        </p>
+
+                        <!-- FORM ALERT -->
+                        <div id="formAlert" role="alert" aria-live="polite"></div>
+
+                        <form id="personalForm" novalidate>
+
+                            <!-- NAME -->
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">
+                                    Full Name
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="fullName"
+                                       placeholder="Enter your full name"
+                                       minlength="2"
+                                       maxlength="50"
+                                       pattern="[A-Za-z ]{2,50}"
+                                       required>
+
+                                <div class="invalid-feedback">
+                                    Enter a valid name using letters and spaces only.
+                                </div>
+                            </div>
+
+                            <!-- EMAIL -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                       class="form-control"
+                                       id="email"
+                                       placeholder="example@gmail.com"
+                                       required>
+
+                                <div class="invalid-feedback">
+                                    Enter a valid email address.
+                                </div>
+                            </div>
+
+                            <!-- PHONE -->
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input type="tel"
+                                       class="form-control"
+                                       id="phone"
+                                       placeholder="Enter 10-digit mobile number"
+                                       maxlength="10"
+                                       pattern="[6-9][0-9]{9}"
+                                       required>
+
+                                <div class="invalid-feedback">
+                                    Enter a valid 10-digit Indian mobile number.
+                                </div>
+                            </div>
+
+                            <!-- DATE OF BIRTH -->
+                            <div class="mb-3">
+                                <label for="dob" class="form-label">
+                                    Date of Birth
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="dob"
+                                       placeholder="Select your date of birth"
+                                       autocomplete="off"
+                                       required
+                                       readonly>
+
+                                <div class="invalid-feedback">
+                                    You must be at least 18 years old.
+                                </div>
+                            </div>
+
+                            <!-- SUMMARY -->
+                            <div class="mb-4">
+                                <label for="summary" class="form-label">
+                                    Summary
+                                </label>
+
+                                <textarea class="form-control"
+                                          id="summary"
+                                          rows="4"
+                                          minlength="10"
+                                          maxlength="500"
+                                          placeholder="Write a short summary about yourself"
+                                          required></textarea>
+
+                                <div class="invalid-feedback">
+                                    Summary must contain at least 10 characters.
+                                </div>
+                            </div>
+
+                            <!-- TERMS AND CONDITIONS CHECKBOX -->
+                            <div class="mb-4 terms-check">
+                                <div class="form-check">
+
+                                    <input class="form-check-input"
+                                           type="checkbox"
+                                           value="accepted"
+                                           id="termsAccepted"
+                                           required>
+
+                                    <label class="form-check-label" for="termsAccepted">
+                                        I have read and agree to the
+
+                                        <a href="#termsModal"
+                                           class="terms-link"
+                                           data-bs-toggle="modal"
+                                           data-bs-target="#termsModal">
+                                            Terms and Conditions
+                                        </a>.
+                                    </label>
+
+                                    <div class="invalid-feedback">
+                                        You must accept the Terms and Conditions before submitting the form.
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- BUTTONS -->
+                            <div class="d-flex flex-wrap gap-3">
+
+                                <button type="submit" class="form-submit-btn">
+                                    <i class="bi bi-send"></i>
+                                    Submit Details
+                                </button>
+
+                                <button type="reset" class="form-reset-btn">
+                                    <i class="bi bi-arrow-counterclockwise"></i>
+                                    Clear Form
+                                </button>
+
+                            </div>
+                        </form>
+
+                        <!-- TERMS AND CONDITIONS MODAL -->
+                        <div class="modal fade terms-modal"
+                             id="termsModal"
+                             tabindex="-1"
+                             aria-labelledby="termsModalLabel"
+                             aria-hidden="true">
+
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="termsModalLabel">
+                                            Terms and Conditions
+                                        </h5>
+
+                                        <button type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <p>
+                                            <strong>1. Accuracy of Information:</strong>
+
+                                            By submitting this form, you confirm that the personal details
+                                            you provide, including your name, email address, phone number,
+                                            date of birth and summary, are accurate and complete to the best
+                                            of your knowledge. You agree not to submit false, misleading or
+                                            someone else's information without permission. You must be at
+                                            least 18 years old to use this form.
+                                        </p>
+
+                                        <p>
+                                            <strong>2. Use of Information and Consent:</strong>
+
+                                            The information entered in this form is used only to demonstrate
+                                            form submission and validation on this portfolio website. Please
+                                            do not enter passwords, financial details or other sensitive
+                                            personal information. By clicking the Accept button, you confirm
+                                            that you have read and agreed to these terms. The Terms and
+                                            Conditions checkbox in the form will then be selected automatically.
+                                            If you do not agree, click Close instead; the form will not be
+                                            submitted until you accept the terms.
+                                        </p>
+
+                                    </div>
+
+                                    <!-- CLOSE AND ACCEPT BUTTONS -->
+                                    <div class="modal-footer">
+
+                                        <button type="button"
+                                                class="btn-outline-custom"
+                                                data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+
+                                        <button type="button"
+                                                class="btn-custom"
+                                                id="acceptTermsBtn">
+                                            Accept
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SUBMISSION RESULT -->
+                        <div class="result-card" id="resultCard" aria-live="polite">
+
+                            <h5>
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Details Submitted Successfully!
+                            </h5>
+
+                            <hr>
+
+                            <p>
+                                <strong>Name:</strong>
+                                <span id="resultName"></span>
+                            </p>
+
+                            <p>
+                                <strong>Email:</strong>
+                                <span id="resultEmail"></span>
+                            </p>
+
+                            <p>
+                                <strong>Phone:</strong>
+                                <span id="resultPhone"></span>
+                            </p>
+
+                            <p>
+                                <strong>Date of Birth:</strong>
+                                <span id="resultDob"></span>
+                            </p>
+
+                            <p>
+                                <strong>Age:</strong>
+                                <span id="resultAge"></span>
+                            </p>
+
+                            <p>
+                                <strong>Summary:</strong>
+                                <span id="resultSummary"></span>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h5 class="fw-bold">SARVIKA GM</h5>
+            <p>Building skills. Creating solutions. Learning every day.</p>
+            <p>© 2026 Sarvika GM</p>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="backToTop"
+            title="Back to top"
+            aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FLATPICKR JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- CUSTOM JAVASCRIPT -->
+    <script>
+
+        // BACK TO TOP BUTTON
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 300) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+
+        });
+
+        backToTop.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        // ANIMATED SKILL BARS
+        const skillBars = document.querySelectorAll(".progress-bar");
+
+        const observer = new IntersectionObserver(function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    const bar = entry.target;
+
+                    bar.style.width = bar.getAttribute("data-width");
+
+                    observer.unobserve(bar);
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.5
+        });
+
+        skillBars.forEach(function (bar) {
+            observer.observe(bar);
+        });
+
+
+        // CLOSE MOBILE NAVBAR AFTER CLICKING A LINK
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+        const navbarMenu = document.getElementById("navbarMenu");
+
+        navLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (navbarMenu.classList.contains("show")) {
+
+                    bootstrap.Collapse.getOrCreateInstance(navbarMenu).hide();
+
+                }
+
+            });
+
+        });
+
+
+        // PERSONAL DETAILS FORM VALIDATION
+        const personalForm = document.getElementById("personalForm");
+
+        const dobInput = document.getElementById("dob");
+
+        const formAlert = document.getElementById("formAlert");
+
+        const resultCard = document.getElementById("resultCard");
+
+
+        // TERMS AND CONDITIONS ELEMENTS
+        const termsAccepted = document.getElementById("termsAccepted");
+
+        const acceptTermsBtn = document.getElementById("acceptTermsBtn");
+
+        const termsModalElement = document.getElementById("termsModal");
+
+
+        // ACCEPT BUTTON FUNCTION
+        acceptTermsBtn.addEventListener("click", function () {
+
+            // Automatically select the checkbox in the form
+            termsAccepted.checked = true;
+
+            // Close the Terms and Conditions popup
+            bootstrap.Modal.getOrCreateInstance(termsModalElement).hide();
+
+        });
+
+
+        // DATE OF BIRTH: ONLY ALLOW USERS AGED 18 OR ABOVE
+        const currentDate = new Date();
+
+        const maxDOBDate = new Date(
+            currentDate.getFullYear() - 18,
+            currentDate.getMonth(),
+            currentDate.getDate()
+        );
+
+        const maxDOBString = [
+            maxDOBDate.getFullYear(),
+            String(maxDOBDate.getMonth() + 1).padStart(2, "0"),
+            String(maxDOBDate.getDate()).padStart(2, "0")
+        ].join("-");
+
+
+        // FLATPICKR DATE PICKER
+        const dobPicker = flatpickr(dobInput, {
+
+            dateFormat: "Y-m-d",
+
+            minDate: "1900-01-01",
+
+            maxDate: maxDOBString,
+
+            yearRange: [1900, maxDOBDate.getFullYear()],
+
+            allowInput: false,
+
+            disableMobile: true
+
+        });
+
+
+        // CALCULATE AGE
+        function calculateAge(dateOfBirth) {
+
+            const birthDate = new Date(dateOfBirth + "T00:00:00");
+
+            const today = new Date();
+
+            let age = today.getFullYear() - birthDate.getFullYear();
+
+            const monthDifference =
+                today.getMonth() - birthDate.getMonth();
+
+            if (
+                monthDifference < 0 ||
+                (
+                    monthDifference === 0 &&
+                    today.getDate() < birthDate.getDate()
+                )
+            ) {
+                age--;
+            }
+
+            return age;
+
+        }
+
+
+        // FORM SUBMISSION
+        personalForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            formAlert.innerHTML = "";
+
+            resultCard.style.display = "none";
+
+
+            // GET FORM VALUES
+            const name = document.getElementById("fullName").value.trim();
+
+            const email = document.getElementById("email").value.trim();
+
+            const phone = document.getElementById("phone").value.trim();
+
+            const dob = dobInput.value;
+
+            const summary = document.getElementById("summary").value.trim();
+
+
+            // NAME VALIDATION
+            const namePattern = /^[A-Za-z ]{2,50}$/;
+
+            document.getElementById("fullName").setCustomValidity(
+                namePattern.test(name) ? "" : "Invalid name"
+            );
+
+
+            // EMAIL VALIDATION
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            document.getElementById("email").setCustomValidity(
+                emailPattern.test(email) ? "" : "Invalid email"
+            );
+
+
+            // PHONE VALIDATION
+            const phonePattern = /^[6-9][0-9]{9}$/;
+
+            document.getElementById("phone").setCustomValidity(
+                phonePattern.test(phone) ? "" : "Invalid phone number"
+            );
+
+
+            // AGE VALIDATION
+            let age = -1;
+
+            if (dob) {
+                age = calculateAge(dob);
+            }
+
+            dobInput.setCustomValidity(
+                dob && dob <= maxDOBString && age >= 18
+                    ? ""
+                    : "Age must be 18 or above"
+            );
+
+
+            // SUMMARY VALIDATION
+            document.getElementById("summary").setCustomValidity(
+                summary.length >= 10 && summary.length <= 500
+                    ? ""
+                    : "Invalid summary"
+            );
+
+
+            // CHECK ALL FIELDS
+            personalForm.classList.add("was-validated");
+
+            if (!personalForm.checkValidity()) {
+
+                formAlert.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        Please correct the errors before submitting.
+                    </div>
+                `;
+
+                return;
+
+            }
+
+
+            // DISPLAY SUBMITTED DETAILS
+            document.getElementById("resultName").textContent = name;
+
+            document.getElementById("resultEmail").textContent = email;
+
+            document.getElementById("resultPhone").textContent = phone;
+
+            document.getElementById("resultDob").textContent = dob;
+
+            document.getElementById("resultAge").textContent =
+                age + " years";
+
+            document.getElementById("resultSummary").textContent = summary;
+
+
+            // SHOW SUCCESS RESULT
+            resultCard.style.display = "block";
+
+            formAlert.innerHTML = `
+                <div class="alert alert-success">
+                    <i class="bi bi-check-circle-fill"></i>
+                    Form submitted successfully!
+                </div>
+            `;
+
+
+            // CLEAR FORM FIELDS AFTER SUCCESSFUL SUBMISSION
+            personalForm.reset();
+
+            personalForm.classList.remove("was-validated");
+
+
+            // CLEAR CUSTOM VALIDATION MESSAGES
+            personalForm.querySelectorAll("input, textarea").forEach(function (field) {
+
+                field.setCustomValidity("");
+
+            });
+
+
+            // SCROLL TO RESULT
+            resultCard.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        });
+
+
+        // MANUAL RESET BUTTON
+        personalForm.addEventListener("reset", function () {
+
+            dobPicker.clear();
+
+            formAlert.innerHTML = "";
+
+            resultCard.style.display = "none";
+
+            personalForm.classList.remove("was-validated");
+
+
+            setTimeout(function () {
+
+                personalForm.querySelectorAll("input, textarea").forEach(function (field) {
+
+                    field.setCustomValidity("");
+
+                });
+
+            }, 0);
+
+        });
+
+    </script>
+
+</body>
+</html>
